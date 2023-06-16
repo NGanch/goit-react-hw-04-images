@@ -19,7 +19,6 @@ export function App() {
   const [isEmpty, setIsEmpty] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  // const [modalVisible, setModalVisible] = useState(false);
   const [largeImageURL, setLargeImageURL] = useState(null);
   const [tagsImg, setTagsImg] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -55,6 +54,7 @@ export function App() {
         setIsShowButton(page < Math.ceil(totalHits / per_page));
       } catch (error) {
         setError(error.message);
+       
       } finally {
         setIsLoading(false);
       }
