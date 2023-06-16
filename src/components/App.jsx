@@ -26,7 +26,7 @@ export function App() {
   useEffect(() => {
     const abortCtrl = new AbortController();
     
-    async function getImage(currentPage) {
+    async function getImage() {
       if(query === ''){
         return;
       } 
@@ -37,14 +37,11 @@ export function App() {
         setIsLoading(true);
         const response = await ImageService.getImages(
           query,
-          currentPage,
+          page,
           abortCtrl
         );
 
-        // const {hits,totalHits} = response.data;
         const { hits, totalHits } = response;
-        console.log(hits);
-        console.log(totalHits);
         if (!hits.length) {
           setIsEmpty(true);
           return;
@@ -71,6 +68,7 @@ export function App() {
     setQuery(value);
     setImages([]);
     setPage(1);
+    setPer_page(12);
     setIsShowButton(false);
     setIsEmpty(false);
     setIsLoading(false);
