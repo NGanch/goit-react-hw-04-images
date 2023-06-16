@@ -8,12 +8,11 @@ import {
   SearchFormStyled,
 } from './Searchbar.slyled';
 //=====================================================
-export function Searchbar ({onSubmit}){
-    const [searchName, setSearchName] = useState('');
+export function Searchbar({ onSubmit }) {
+  const [searchName, setSearchName] = useState('');
 
   const handleSearch = evt => {
     setSearchName(evt.currentTarget.value.toLowerCase());
-
   };
   //---- Опрацювання форми -----
 
@@ -39,24 +38,22 @@ export function Searchbar ({onSubmit}){
     // Очишення
     setSearchName('');
     // console.log(this.state)
-
   };
-    return (
-      <Header>
-        <SearchFormStyled onSubmit={handleSubmit}>
-          <InputSearch
-            type="text"
-            autoComplete="off"
-            autoFocus
-            placeholder="Search images and photos"
-            value={searchName}
-            onChange={handleSearch}
-          />
-          <FormBtn type="submit">
-            <FiSearch fontSize="1.5em" />
-          </FormBtn>
-        </SearchFormStyled>
-      </Header>
-    );
-  }
-
+  return (
+    <Header>
+      <SearchFormStyled onSubmit={handleSubmit}>
+        <InputSearch
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search images and photos"
+          value={searchName}
+          onChange={handleSearch}
+        />
+        <FormBtn type="submit">
+          <FiSearch fontSize="1.5em" />
+        </FormBtn>
+      </SearchFormStyled>
+    </Header>
+  );
+}

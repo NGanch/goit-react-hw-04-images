@@ -25,21 +25,17 @@ export function App() {
   //===================================
   useEffect(() => {
     const abortCtrl = new AbortController();
-    
+
     async function getImage() {
-      if(query === ''){
+      if (query === '') {
         return;
-      } 
+      }
       if (!query) {
         return;
       }
       try {
         setIsLoading(true);
-        const response = await ImageService.getImages(
-          query,
-          page,
-          abortCtrl
-        );
+        const response = await ImageService.getImages(query, page, abortCtrl);
 
         const { hits, totalHits } = response;
         if (!hits.length) {
@@ -51,8 +47,7 @@ export function App() {
         setIsShowButton(page < Math.ceil(totalHits / per_page));
       } catch (error) {
         // setError(error.message);
-        console.log(error.message)
-       
+        console.log(error.message);
       } finally {
         setIsLoading(false);
       }

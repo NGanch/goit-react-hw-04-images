@@ -14,7 +14,6 @@ export function ImageGallery({ images, onClick }) {
               key={image.id}
               image={image}
             />
-
           );
         })}
       </GalleryList>
