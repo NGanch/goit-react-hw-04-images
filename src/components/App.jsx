@@ -18,7 +18,7 @@ export function App() {
   const [isShowButton, setIsShowButton] = useState(false);
   const [isEmpty, setIsEmpty] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [largeImageURL, setLargeImageURL] = useState(null);
   const [tagsImg, setTagsImg] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -53,7 +53,8 @@ export function App() {
         setImages(prevState => [...prevState, ...hits]);
         setIsShowButton(page < Math.ceil(totalHits / per_page));
       } catch (error) {
-        setError(error.message);
+        // setError(error.message);
+        console.log(error.message)
        
       } finally {
         setIsLoading(false);
@@ -73,12 +74,12 @@ export function App() {
     setIsShowButton(false);
     setIsEmpty(false);
     setIsLoading(false);
-    setError(null);
+    // setError(null);
   };
   //======================= LOAD MORE =======================
   const handleOnClick = () => {
     setPage(prevState => prevState + 1);
-    // setPer_page(prevState => prevState + 12);
+    setPer_page(prevState => prevState + 12);
   };
   //======================= LOAD MORE =======================
   // ======================= MODAL =======================
